@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Of Recipe</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            
+        }
+    
+        body {
+            background-color: #292929;
+            overflow-x: hidden;
+            
+        }
+    
+        nav {
+            width: auto;
+            height: 70px;
+            background-color: rgb(165, 120, 42);
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+            background-color: rgb(0, 0, 0);
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            padding: 0 20px;
+        }
+    
+        .logo {
+            margin-top: 15px;
+            
+            font-size: 20px;
+            text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+            color: rgb(251, 159, 0);
+        }
+    
+        .navbar-buttons {
+            display: flex;
+            align-items: center;
+            margin-left: 20px; /* Add margin to push the buttons to the left */
+        }
+    
+        .dropbtn {
+            font-size: 20px;
+            background-color: rgb(22, 22, 22);
+            color: #FBF3F2;
+            padding: 5px;
+            border: none;
+            cursor: pointer;
+            border-radius: 30px;
+        }
+
+        .dropbtn:hover {
+            background-color: #e0cac8;
+            color: #FBF3F2;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            
+        }
+
+        .dropdown-content a:hover {
+            background-color: #dadada;
+            border-radius: 30px;
+        }
+
+        .btn-back {
+            font-size: 20px;
+            text-decoration: none;
+            color: #FBF3F2;
+            padding: 10px;
+            margin-left: 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 30px;
+        }
+
+        .btn-back:hover {
+            color: #e0cac8;
+            border-radius: 30px;
+        }
+
+        #selected-category-info {
+            margin-top: 20px;
+            border-radius: 30px;
+        }
+
+        #selected-category-name {
+            color: rgb(150, 95, 0);
+            border-radius: 30px;
+        }
+
+        .table-container {
+            width: 80%;
+            margin: 0 auto;
+            border-radius: 30px;
+        }
+
+        #selected-category-table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 30px;
+        }
+
+        #selected-category-table th,
+        #selected-category-table td {
+            border: 1px solid #292929;
+            padding: 15px;
+            text-align: left;
+            border-radius: 30px;
+        }
+
+        #selected-category-table th {
+            background-color: rgb(165, 120, 42);
+            color: rgb(255, 255, 255);
+            border-radius: 30px;
+        }
+
+        #selected-category-table tbody tr:nth-child(odd) {
+            background-color: rgb(255, 206, 121);
+            color: rgb(0, 0, 0);
+            border-radius: 30px;
+        }
+
+        #selected-category-table tbody tr:nth-child(even) {
+            background-color: rgb(255, 206, 121);
+            color: rgb(0, 0, 0);
+            border-radius: 30px;
+        }
+
+        .main-title {
+            
+            font-size: 30px;
+            color: #FBF3F2;
+            text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            border: black;
+            outline: solid 10px rgb(165, 120, 42);
+            top: 300px;
+            left: 50px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            
+            color: rgb(165, 120, 42);
+            font-size: 50px;
+        }
+
+        hr {
+            border: 5px solid rgb(165, 120, 42);
+            border-radius: 4px;
+            width: 50px;
+        }
+        
+        
+    </style>
+    
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <p>KingOfRecipe</p>
+        </div>
+
+        <div class="navbar-buttons">
+            <div class="dropdown">
+                <button class="dropbtn" id="food-category-btn"> Select Category </button>
+                <div class="dropdown-content" id="food-category-dropdown">
+                    <a href="#" onclick="fetchDataByCategory('Seafood')">Seafood</a>
+                    <a href="#" onclick="fetchDataByCategory('Chicken')">Chicken</a>
+                    <a href="#" onclick="fetchDataByCategory('Lamb')">Lamb</a>
+                </div>
+            </div>
+            <a href="crud.html" class="btn-back" onclick="goBack()">Notes</a>
+            <a href="feedback.html" class="btn-back" onclick="goBack()">Feedback</a>
+        </div>
+    </nav>
+
+    <div id="selected-category-info">
+        <h2><span id="selected-category-name"></span></h2>
+    </div>
+
+    <div class="table-container">
+        <table id="selected-category-table">
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Meal</th>
+                    <th>Image</th>
+                    <th>Ingredients</th>
+                    <th>Instructions</th>
+                    <th>Source</th>
+                    <th>Youtube</th>
+                </tr>
+            </thead>
+            <tbody id="selected-category-table-body">
+                <!-- Table content will be added here using JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="main.js"></script>
+    <script src="crud.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

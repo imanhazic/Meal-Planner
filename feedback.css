@@ -1,0 +1,82 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('https://images.pexels.com/photos/12557595/pexels-photo-12557595.jpeg?cs=srgb&dl=pexels-alejandro-aznar-12557595.jpg&fm=jpg&_gl=1*tdm8by*_ga*MTc1NjU1MzEwOC4xNjg2MDYyNzU2*_ga_8JE65Q40S6*MTY5OTU2Mjc2Ny4xNS4xLjE2OTk1NjI5MDEuMC4wLjA.');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.mainWrapper {
+    background-color: rgb(0, 0, 0);
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgb(165, 120, 42);
+    max-width: 600px; /* Adjust the maximum width as needed */
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    color: rgb(165, 120, 42);
+}
+
+.form-group {
+    margin-bottom: 15px;
+    border-radius: 30px;
+    color: white;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 3px solid rgb(165, 120, 42);
+    border-radius: 30px;
+    font-size: 16px;
+    color: black; /* Adjust the font color for better visibility */
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 2px solid rgb(165, 120, 42);
+    border-radius: 30px;
+    font-size: 20px;
+    color: black; /* Adjust the font color for better visibility */
+}
+
+.btn {
+    background-color: rgb(165, 120, 42);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.btn:hover {
+    background-color: rgb(160, 127, 70);
+}
+
+a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: rgb(165, 120, 42);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
